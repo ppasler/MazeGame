@@ -6,17 +6,12 @@ public class MazeTest {
 	Maze maze;
 
 	@Before
-	public void setup(){
-		maze = new Maze();
+	public void setup() {
+		maze = MazeGame.createMaze();
 	}
 
 	@Test
-	public void addRoom_sunshine() {
-		maze.addRoom();
-	}
-
-	@Test
-	public void roomNo_sunshine() {
-		maze.roomNo();
+	public void run() {
+	System.out.println(maze);
 	}
 }

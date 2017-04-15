@@ -3,8 +3,8 @@ package mapsite;
 public class Room extends AbstractMapSite {
 
 	private final int roomNumber;
-	private MapSite[] sides;
 
+	private MapSite[] sides;
 	public Room(int roomNumber) {
 		this.roomNumber = roomNumber;
 		sides = new MapSite[4];
@@ -20,5 +20,9 @@ public class Room extends AbstractMapSite {
 
 	public MapSite getSide(Direction direction) {
 		return null;
+	}
+
+	public int getRoomNumber() {
+		return roomNumber;
 	}
 }
