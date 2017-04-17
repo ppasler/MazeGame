@@ -2,18 +2,24 @@ package de.ppasler.designpatterns.mazegame.creational;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-
 import de.ppasler.designpatterns.mazegame.creational.factory.DefaultMazeFactory;
 import de.ppasler.designpatterns.mazegame.creational.factory.MazeFactory;
-import de.ppasler.designpatterns.mazegame.mapsite.*;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.Direction;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Door;
+import de.ppasler.designpatterns.mazegame.objects.Maze;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Room;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Wall;
+import org.junit.Test;
 
 public class MazeCreationTest {
 
 	@Test
 	public void createMaze() {
 		Maze maze1 = createMaze_native();
-		Maze maze2 = createMaze_factory();
+
+		MazeFactory factory = new DefaultMazeFactory();
+		Maze maze2 = factory.makeMaze();
+		System.out.println(maze2);
 		assertEquals(maze1, maze2);
 	}
 
@@ -31,34 +37,10 @@ public class MazeCreationTest {
 		r1.setSide(Direction.EAST, new Wall());
 		r1.setSide(Direction.WEST, new Wall());
 
-		r1.setSide(Direction.NORTH, new Wall());
-		r1.setSide(Direction.SOUTH, new Wall());
-		r1.setSide(Direction.EAST, new Wall());
-		r1.setSide(Direction.WEST, door);
-
-		return maze;
-	}
-
-	public Maze createMaze_factory() {
-		MazeFactory factory = new DefaultMazeFactory();
-
-		Maze maze = factory.makeMaze();
-		Room r1 = factory.makeRoom(1);
-		Room r2 = factory.makeRoom(2);
-		Door door = factory.makeDoor(r1, r2);
-
-		maze.addRoom(r1);
-		maze.addRoom(r2);
-
-		r1.setSide(Direction.NORTH, new Wall());
-		r1.setSide(Direction.SOUTH, door);
-		r1.setSide(Direction.EAST, new Wall());
-		r1.setSide(Direction.WEST, new Wall());
-
-		r1.setSide(Direction.NORTH, new Wall());
-		r1.setSide(Direction.SOUTH, new Wall());
-		r1.setSide(Direction.EAST, new Wall());
-		r1.setSide(Direction.WEST, door);
+		r2.setSide(Direction.NORTH, new Wall());
+		r2.setSide(Direction.SOUTH, new Wall());
+		r2.setSide(Direction.EAST, new Wall());
+		r2.setSide(Direction.WEST, door);
 
 		return maze;
 	}

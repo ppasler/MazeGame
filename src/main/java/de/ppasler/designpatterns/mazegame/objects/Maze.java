@@ -1,6 +1,8 @@
-package de.ppasler.designpatterns.mazegame.mapsite;
+package de.ppasler.designpatterns.mazegame.objects;
 
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Room;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,5 +37,12 @@ public class Maze {
 					.isEquals();
 		}
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this)
+				.append("Map", map)
+				.toString();
 	}
 }

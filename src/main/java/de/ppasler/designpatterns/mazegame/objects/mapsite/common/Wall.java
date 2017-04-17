@@ -1,4 +1,6 @@
-package de.ppasler.designpatterns.mazegame.mapsite;
+package de.ppasler.designpatterns.mazegame.objects.mapsite.common;
+
+import de.ppasler.designpatterns.mazegame.objects.mapsite.AbstractMapSite;
 
 public class Wall extends AbstractMapSite {
 	public void enter() {
@@ -11,5 +13,10 @@ public class Wall extends AbstractMapSite {
 			return false;
 		}
 		return other.getClass().equals(this.getClass());
+	}
+
+	@Override
+	public String toString() {
+		return "Wall";
 	}
 }

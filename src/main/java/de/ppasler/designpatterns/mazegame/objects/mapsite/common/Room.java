@@ -1,11 +1,15 @@
-package de.ppasler.designpatterns.mazegame.mapsite;
+package de.ppasler.designpatterns.mazegame.objects.mapsite.common;
 
+import de.ppasler.designpatterns.mazegame.objects.mapsite.AbstractMapSite;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.Direction;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.MapSite;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Room extends AbstractMapSite {
 
-	private final int roomNumber;
-	private MapSite[] sides;
+	protected final int roomNumber;
+	protected MapSite[] sides;
 
 	public Room(int roomNumber) {
 		this.roomNumber = roomNumber;
@@ -45,5 +49,16 @@ public class Room extends AbstractMapSite {
 					.isEquals();
 		}
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this)
+				.append("#", roomNumber)
+				.append(Direction.NORTH.toString(), sides[Direction.NORTH.getValue()])
+				.append(Direction.SOUTH.toString(), sides[Direction.SOUTH.getValue()])
+				.append(Direction.EAST.toString(), sides[Direction.EAST.getValue()])
+				.append(Direction.WEST.toString(), sides[Direction.WEST.getValue()])
+				.toString();
 	}
 }

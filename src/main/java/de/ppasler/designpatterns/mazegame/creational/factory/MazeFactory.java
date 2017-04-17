@@ -1,6 +1,9 @@
 package de.ppasler.designpatterns.mazegame.creational.factory;
 
-import de.ppasler.designpatterns.mazegame.mapsite.*;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Door;
+import de.ppasler.designpatterns.mazegame.objects.Maze;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Room;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Wall;
 
 public interface MazeFactory {
 

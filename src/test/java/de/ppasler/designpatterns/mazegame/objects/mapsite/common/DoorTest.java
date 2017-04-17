@@ -1,4 +1,4 @@
-package de.ppasler.designpatterns.mazegame.mapsite;
+package de.ppasler.designpatterns.mazegame.objects.mapsite.common;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -29,7 +29,7 @@ public class DoorTest {
 	@Test
 	public void equals_otherType() {
 		Door door = createDoor();
-		assertNotEquals(door, "Room");
+		assertNotEquals(door, "RoomWithABomb");
 	}
 
 	private Door createDoor() {

@@ -1,4 +1,4 @@
-package de.ppasler.designpatterns.mazegame.mapsite;
+package de.ppasler.designpatterns.mazegame.objects.mapsite;
 
 public enum Direction {
 	NORTH(0), SOUTH(1), EAST(2), WEST(3);
