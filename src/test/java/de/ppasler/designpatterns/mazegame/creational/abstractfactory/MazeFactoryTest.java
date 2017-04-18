@@ -1,9 +1,7 @@
-package de.ppasler.designpatterns.mazegame.creational.factory;
+package de.ppasler.designpatterns.mazegame.creational.abstractfactory;
 
 import de.ppasler.designpatterns.mazegame.objects.Maze;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class MazeFactoryTest {
 	@Test

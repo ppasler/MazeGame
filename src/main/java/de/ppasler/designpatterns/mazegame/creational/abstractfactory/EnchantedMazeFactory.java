@@ -1,4 +1,4 @@
-package de.ppasler.designpatterns.mazegame.creational.factory;
+package de.ppasler.designpatterns.mazegame.creational.abstractfactory;
 
 import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Room;
 import de.ppasler.designpatterns.mazegame.objects.mapsite.enchanted.DoorNeedingSpell;

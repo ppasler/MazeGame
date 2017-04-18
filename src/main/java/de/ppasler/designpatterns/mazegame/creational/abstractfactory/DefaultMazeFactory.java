@@ -1,4 +1,4 @@
-package de.ppasler.designpatterns.mazegame.creational.factory;
+package de.ppasler.designpatterns.mazegame.creational.abstractfactory;
 
 import de.ppasler.designpatterns.mazegame.objects.mapsite.Direction;
 import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Door;
