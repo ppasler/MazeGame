@@ -19,8 +19,8 @@ public class DefaultMazeFactory implements MazeFactory {
 		maze.addRoom(r2);
 
 		r1.setSide(Direction.NORTH, makeWall());
-		r1.setSide(Direction.SOUTH, door);
-		r1.setSide(Direction.EAST, makeWall());
+		r1.setSide(Direction.SOUTH, makeWall());
+		r1.setSide(Direction.EAST, door);
 		r1.setSide(Direction.WEST, makeWall());
 
 		r2.setSide(Direction.NORTH, makeWall());

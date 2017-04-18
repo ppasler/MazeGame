@@ -2,6 +2,8 @@ package de.ppasler.designpatterns.mazegame.creational;
 
 import static org.junit.Assert.assertEquals;
 
+import de.ppasler.designpatterns.mazegame.creational.builder.DefaultMazeBuilder;
+import de.ppasler.designpatterns.mazegame.creational.builder.MazeBuilder;
 import de.ppasler.designpatterns.mazegame.creational.factory.DefaultMazeFactory;
 import de.ppasler.designpatterns.mazegame.creational.factory.MazeFactory;
 import de.ppasler.designpatterns.mazegame.objects.mapsite.Direction;
@@ -14,12 +16,22 @@ import org.junit.Test;
 public class MazeCreationTest {
 
 	@Test
-	public void createMaze() {
+	public void createMaze_factory() {
 		Maze maze1 = createMaze_native();
 
 		MazeFactory factory = new DefaultMazeFactory();
 		Maze maze2 = factory.makeMaze();
-		System.out.println(maze2);
+
+		assertEquals(maze1, maze2);
+	}
+
+	@Test
+	public void createMaze_builder() {
+		Maze maze1 = createMaze_native();
+
+		MazeBuilder builder = new DefaultMazeBuilder();
+		Maze maze2 = builder.createMaze().addRoom(1).addRoom(2).addDoor(1, 2).build();
+
 		assertEquals(maze1, maze2);
 	}
 
@@ -33,8 +45,8 @@ public class MazeCreationTest {
 		maze.addRoom(r2);
 
 		r1.setSide(Direction.NORTH, new Wall());
-		r1.setSide(Direction.SOUTH, door);
-		r1.setSide(Direction.EAST, new Wall());
+		r1.setSide(Direction.SOUTH, new Wall());
+		r1.setSide(Direction.EAST, door);
 		r1.setSide(Direction.WEST, new Wall());
 
 		r2.setSide(Direction.NORTH, new Wall());
