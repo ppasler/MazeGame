@@ -3,14 +3,26 @@ package de.ppasler.designpatterns.mazegame.objects.mapsite.enchanted;
 import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Room;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class EnchantedRoom extends Room {
 
-	public EnchantedRoom(int roomNumber) {
+	private Method castSpell;
+
+	public EnchantedRoom(int roomNumber, Method castSpell) {
 		super(roomNumber);
+		this.castSpell = castSpell;
 	}
 
 	public void enter() {
-		// todo
+		try {
+			castSpell.invoke(null);
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
