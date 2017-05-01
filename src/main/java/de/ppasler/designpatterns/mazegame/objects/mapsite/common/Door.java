@@ -6,14 +6,23 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Door extends AbstractMapSite<Door> {
 
-	protected final Room room1;
-	protected final Room room2;
+	protected Room room1;
+	protected Room room2;
 	protected boolean isOpen;
 
+	public Door() {
+		this.isOpen = false;
+	}
+
 	public Door(Room room1, Room room2) {
+		this();
+		init(room1, room2);
+	}
+
+	public Door init(Room room1, Room room2) {
 		this.room1 = room1;
 		this.room2 = room2;
-		this.isOpen = false;
+		return this;
 	}
 
 	public void enter() {

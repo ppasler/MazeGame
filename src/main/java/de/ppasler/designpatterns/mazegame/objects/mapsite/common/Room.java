@@ -8,12 +8,21 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Room extends AbstractMapSite<Room> {
 
-	protected final int roomNumber;
+	protected int roomNumber;
 	protected MapSite[] sites;
 
-	public Room(int roomNumber) {
-		this.roomNumber = roomNumber;
+	public Room() {
 		sites = new MapSite[4];
+	}
+
+	public Room(int roomNumber) {
+		this();
+		init(roomNumber);
+	}
+
+	public Room init(int roomNumber) {
+		this.roomNumber = roomNumber;
+		return this;
 	}
 
 	public void enter() {

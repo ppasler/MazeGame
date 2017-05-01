@@ -1,13 +1,16 @@
 package de.ppasler.designpatterns.mazegame.objects;
 
 import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Room;
+
+import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Maze {
+public class Maze implements Serializable {
 
 	private Map<Integer, Room> map;
 
@@ -25,6 +28,10 @@ public class Maze {
 
 	public Map<Integer, Room> getMap() {
 		return map;
+	}
+
+	public Maze cloneIt() {
+		return SerializationUtils.clone(this);
 	}
 
 	@Override

@@ -8,7 +8,11 @@ import de.ppasler.designpatterns.mazegame.creational.builder.MazeBuilder;
 import de.ppasler.designpatterns.mazegame.creational.abstractfactory.DefaultMazeFactory;
 import de.ppasler.designpatterns.mazegame.creational.abstractfactory.MazeFactory;
 import de.ppasler.designpatterns.mazegame.creational.factorymethods.DefaultMazeGame;
+import de.ppasler.designpatterns.mazegame.creational.prototype.PrototypeMazeFacotry;
 import de.ppasler.designpatterns.mazegame.objects.Maze;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Door;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Room;
+import de.ppasler.designpatterns.mazegame.objects.mapsite.common.Wall;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +27,7 @@ public class MazeCreationTest {
 	}
 
 	@Test
-	public void createMaze_abstractfactory() {
+	public void createMaze_abstractFactory() {
 		Maze maze1 = mazeGame.createMaze();
 
 		MazeFactory factory = new DefaultMazeFactory();
@@ -33,11 +37,25 @@ public class MazeCreationTest {
 	}
 
 	@Test
-	public void createMaze_factorymethods() {
+	public void createMaze_factoryMethods() {
 		Maze maze1 = mazeGame.createMaze();
 
 		MazeGame defaultMazeGame = new DefaultMazeGame();
 		Maze maze2 = defaultMazeGame.createMaze();
+
+		assertEquals(maze1, maze2);
+	}
+
+	@Test
+	public void createMaze_prototypeFactory() {
+		Maze maze1 = mazeGame.createMaze();
+
+		MazeFactory factory = new PrototypeMazeFacotry(
+				new Maze(),
+				new Wall(),
+				new Door(),
+				new Room());
+		Maze maze2 = factory.makeMaze();
 
 		assertEquals(maze1, maze2);
 	}
