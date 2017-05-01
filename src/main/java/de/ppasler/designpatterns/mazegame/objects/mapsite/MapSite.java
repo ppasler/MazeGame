@@ -1,5 +1,9 @@
 package de.ppasler.designpatterns.mazegame.objects.mapsite;
 
-public interface MapSite {
+import java.io.Serializable;
+
+public interface MapSite<T> extends Serializable {
 	void enter();
+
+	T cloneIt();
 }

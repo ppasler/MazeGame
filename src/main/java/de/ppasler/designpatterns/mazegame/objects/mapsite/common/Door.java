@@ -4,7 +4,7 @@ import de.ppasler.designpatterns.mazegame.objects.mapsite.AbstractMapSite;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Door extends AbstractMapSite {
+public class Door extends AbstractMapSite<Door> {
 
 	protected final Room room1;
 	protected final Room room2;

@@ -19,10 +19,10 @@ public class RoomWithABomb extends Room {
 		if (other instanceof RoomWithABomb) {
 			final RoomWithABomb room = (RoomWithABomb)other;
 			return new EqualsBuilder()
-					.append(sides[0], room.getSides()[0])
-					.append(sides[1], room.getSides()[1])
-					.append(sides[2], room.getSides()[2])
-					.append(sides[3], room.getSides()[3])
+					.append(sites[0], room.getSites()[0])
+					.append(sites[1], room.getSites()[1])
+					.append(sites[2], room.getSites()[2])
+					.append(sites[3], room.getSites()[3])
 					.append(roomNumber, room.getRoomNumber())
 					.isEquals();
 		}

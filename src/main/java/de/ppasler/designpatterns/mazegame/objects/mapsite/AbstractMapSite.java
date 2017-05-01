@@ -1,6 +1,12 @@
 package de.ppasler.designpatterns.mazegame.objects.mapsite;
 
-public abstract class AbstractMapSite implements MapSite {
+import org.apache.commons.lang3.SerializationUtils;
+
+public abstract class AbstractMapSite<T> implements MapSite<T> {
 
 	public abstract void enter();
+
+	public T cloneIt() {
+		return (T) SerializationUtils.clone(this);
+	}
 }

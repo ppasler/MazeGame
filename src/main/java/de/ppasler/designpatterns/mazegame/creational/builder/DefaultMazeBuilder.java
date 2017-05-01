@@ -19,10 +19,10 @@ public class DefaultMazeBuilder implements MazeBuilder {
 	@Override
 	public MazeBuilder addRoom(int roomNumber) {
 		Room room = new Room(roomNumber);
-		room.setSide(Direction.NORTH, new Wall());
-		room.setSide(Direction.SOUTH, new Wall());
-		room.setSide(Direction.EAST, new Wall());
-		room.setSide(Direction.WEST, new Wall());
+		room.setSite(Direction.NORTH, new Wall());
+		room.setSite(Direction.SOUTH, new Wall());
+		room.setSite(Direction.EAST, new Wall());
+		room.setSite(Direction.WEST, new Wall());
 
 		maze.addRoom(room);
 		return this;
@@ -34,8 +34,8 @@ public class DefaultMazeBuilder implements MazeBuilder {
 		Room room2 = maze.roomNumber(roomNo2);
 
 		Door door = new Door(room1, room2);
-		room1.setSide(Direction.EAST, door);
-		room2.setSide(Direction.WEST, door);
+		room1.setSite(Direction.EAST, door);
+		room2.setSite(Direction.WEST, door);
 		return this;
 	}
 

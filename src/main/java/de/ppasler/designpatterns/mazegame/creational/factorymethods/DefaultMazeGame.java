@@ -18,15 +18,15 @@ public class DefaultMazeGame extends MazeGame {
 		maze.addRoom(r1);
 		maze.addRoom(r2);
 
-		r1.setSide(Direction.NORTH, new Wall());
-		r1.setSide(Direction.SOUTH, new Wall());
-		r1.setSide(Direction.EAST, door);
-		r1.setSide(Direction.WEST, new Wall());
+		r1.setSite(Direction.NORTH, new Wall());
+		r1.setSite(Direction.SOUTH, new Wall());
+		r1.setSite(Direction.EAST, door);
+		r1.setSite(Direction.WEST, new Wall());
 
-		r2.setSide(Direction.NORTH, new Wall());
-		r2.setSide(Direction.SOUTH, new Wall());
-		r2.setSide(Direction.EAST, new Wall());
-		r2.setSide(Direction.WEST, door);
+		r2.setSite(Direction.NORTH, new Wall());
+		r2.setSite(Direction.SOUTH, new Wall());
+		r2.setSite(Direction.EAST, new Wall());
+		r2.setSite(Direction.WEST, door);
 
 		return maze;
 	}

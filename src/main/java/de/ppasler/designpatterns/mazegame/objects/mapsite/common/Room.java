@@ -6,34 +6,44 @@ import de.ppasler.designpatterns.mazegame.objects.mapsite.MapSite;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Room extends AbstractMapSite {
+public class Room extends AbstractMapSite<Room> {
 
 	protected final int roomNumber;
-	protected MapSite[] sides;
+	protected MapSite[] sites;
 
 	public Room(int roomNumber) {
 		this.roomNumber = roomNumber;
-		sides = new MapSite[4];
+		sites = new MapSite[4];
 	}
 
 	public void enter() {
 		// todo
 	}
 
-	public void setSide(Direction direction, MapSite side) {
-		sides[direction.getValue()] = side;
+	public void setSite(Direction direction, MapSite side) {
+		sites[direction.getValue()] = side;
 	}
 
-	public MapSite getSide(Direction direction) {
-		return null;
+	public MapSite getSite(Direction direction) {
+		return sites[direction.getValue()];
 	}
 
 	public int getRoomNumber() {
 		return roomNumber;
 	}
 
-	public MapSite[] getSides() {
-		return sides;
+	public MapSite[] getSites() {
+		return sites;
+	}
+
+	public void setSites(MapSite[] sites) {
+		this.sites = sites;
+	}
+
+	public Room cloneIt() {
+		Room clone = super.cloneIt();
+		clone.setSites(sites.clone());
+		return clone;
 	}
 
 	@Override
@@ -41,10 +51,10 @@ public class Room extends AbstractMapSite {
 		if (other instanceof Room) {
 			final Room room = (Room)other;
 			return new EqualsBuilder()
-					.append(sides[0], room.getSides()[0])
-					.append(sides[1], room.getSides()[1])
-					.append(sides[2], room.getSides()[2])
-					.append(sides[3], room.getSides()[3])
+					.append(sites[0], room.getSites()[0])
+					.append(sites[1], room.getSites()[1])
+					.append(sites[2], room.getSites()[2])
+					.append(sites[3], room.getSites()[3])
 					.append(roomNumber, room.getRoomNumber())
 					.isEquals();
 		}
@@ -55,10 +65,10 @@ public class Room extends AbstractMapSite {
 	public String toString() {
 		return new ToStringBuilder(this)
 				.append("#", roomNumber)
-				.append(Direction.NORTH.toString(), sides[Direction.NORTH.getValue()])
-				.append(Direction.SOUTH.toString(), sides[Direction.SOUTH.getValue()])
-				.append(Direction.EAST.toString(), sides[Direction.EAST.getValue()])
-				.append(Direction.WEST.toString(), sides[Direction.WEST.getValue()])
+				.append(Direction.NORTH.toString(), sites[Direction.NORTH.getValue()])
+				.append(Direction.SOUTH.toString(), sites[Direction.SOUTH.getValue()])
+				.append(Direction.EAST.toString(), sites[Direction.EAST.getValue()])
+				.append(Direction.WEST.toString(), sites[Direction.WEST.getValue()])
 				.toString();
 	}
 }

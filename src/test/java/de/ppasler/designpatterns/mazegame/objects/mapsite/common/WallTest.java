@@ -1,8 +1,13 @@
 package de.ppasler.designpatterns.mazegame.objects.mapsite.common;
 
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.sameInstance;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertThat;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class WallTest {
 
@@ -29,5 +34,19 @@ public class WallTest {
 	public void equals_otherType() {
 		Wall wall = new Wall();
 		assertNotEquals(wall, "RoomWithABomb");
+	}
+
+	@Test
+	public void clone_otherType() {
+		Wall wall = new Wall();
+		assertNotEquals(wall, "RoomWithABomb");
+	}
+
+	@Test
+	public void clone_isOtherObject() {
+		Wall wall = new Wall();
+		Wall wallClone = wall.cloneIt();
+
+		assertThat(wall, is(not(sameInstance(wallClone))));
 	}
 }

@@ -2,7 +2,7 @@ package de.ppasler.designpatterns.mazegame.objects.mapsite.common;
 
 import de.ppasler.designpatterns.mazegame.objects.mapsite.AbstractMapSite;
 
-public class Wall extends AbstractMapSite {
+public class Wall extends AbstractMapSite<Wall> {
 	public void enter() {
 		// todo
 	}
